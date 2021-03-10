@@ -1,0 +1,24 @@
+{
+  "name": "imposter",
+  "version": "1.0.0",
+  "description": "Imposter Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oza",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.3",
+    "discord.js": "^12.5.1",
+    "enmap": "^5.8.2",
+    "ffmpeg-static": "^4.2.7",
+    "fs": "0.0.1-security",
+    "googleapis": "^67.0.0",
+    "yt-search": "^2.5.2",
+    "ytdl-core": "^4.4.5"
+  },
+  "engines": {
+    "node": "12.18.3"
+  }
+}
