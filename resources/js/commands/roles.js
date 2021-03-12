@@ -1,5 +1,3 @@
-const Discord = require('discord.js');
-
 module.exports = {
     name: 'roles',
     args: '[@member]',
@@ -20,17 +18,17 @@ module.exports = {
 
         msg.channel.send(`${member.displayName}'s Roles: ${roles.replace(', @everyone, ', '')}`);
     },
-    setRole(embed, reaction, user) {
+    setRole(embed, reaction, user, client) {
         reaction.users.remove(user);
 
-        const member = reaction.message.guild.member(user);
-        const emojiName = reaction.emoji.name.replace('crew', '');
-        const logs = reaction.message.guild.channels.cache.find(i => i.name === 'logs'); 
-        const roles = reaction.message.guild.roles.cache.array();
-        const colorRoles = roles.splice(2, 12);
-        const generalPings = reaction.message.guild.roles.cache.find(i => i.name === 'general_pings');
-        const amongUsPings = reaction.message.guild.roles.cache.find(i => i.name === 'among_us_pings');
-        const moviePings = reaction.message.guild.roles.cache.find(i => i.name === 'movie_pings');
+        let member = reaction.message.guild.member(user);
+        let emojiName = reaction.emoji.name.replace('crew', '');
+        let logs = reaction.message.guild.channels.cache.find(i => i.id === client.config.logsChannelID); 
+        let roles = reaction.message.guild.roles.cache.array();
+        let colorRoles = roles.splice(2, 12);
+        let generalPings = reaction.message.guild.roles.cache.find(i => i.name === 'general_pings');
+        let amongUsPings = reaction.message.guild.roles.cache.find(i => i.name === 'among_us_pings');
+        let moviePings = reaction.message.guild.roles.cache.find(i => i.name === 'movie_pings');
     
         let role = {
             type: null,
