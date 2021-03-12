@@ -12,7 +12,7 @@ module.exports = {
         msg.delete({timeout: 100});
     },
     clear(reaction) {
-        const channel = reaction.message.channel;
+        let channel = reaction.message.channel;
 
         if (reaction.emoji.name === '✅') {
             channel.messages.fetch({limit: 100}).then(msgs => {
