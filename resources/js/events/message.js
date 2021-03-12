@@ -33,7 +33,7 @@ module.exports = (client, msg) => {
     }
     console.log(`Config: ${client.config.voiceTextChannelID}`);
     console.log(`Channel ID: ${msg.channel.id}`);
-    if (msg.channel.id === client.config.voiceTextChannelID) {
+    if (msg.channel.id === 799644357770215504) {
         console.log('1');
         if (!msg.member.voice.channel) {
             msg.delete({timeout: 100});
