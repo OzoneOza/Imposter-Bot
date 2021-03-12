@@ -20,7 +20,7 @@ module.exports = (client, msg) => {
         return;
     }
     
-    if (msg.channel.name === 'links-and-pings') {
+    if (msg.channel.id === client.config.linksChannelID) {
         let content = msg.content.split(/ +/g);
 
         if (!(content.some(functions.isURL) || msg.content.includes('<@'))) {
@@ -43,7 +43,7 @@ module.exports = (client, msg) => {
     }
 
     if (msg.content.indexOf(client.config.prefix) !== 0) return;
-    let logs = msg.guild.channels.cache.find(i => i.name === 'logs');
+    let logs = msg.guild.channels.cache.find(i => i.id === client.config.logsChannelID);
     logs.send(`${msg.member.displayName} (${msg.author.username}) issued command: ${msg.content}`);
 
     let args = msg.content.toLowerCase().slice(client.config.prefix.length).trim().split(/ +/g);
