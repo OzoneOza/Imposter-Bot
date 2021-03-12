@@ -3,22 +3,22 @@ const functions = require('../handlers/functions');
 module.exports = (client, member) => {
     if (member.user.bot) return;
     
-    const logs = member.guild.channels.cache.find(i => i.name === 'logs');
-    const crewChat = member.guild.channels.cache.find(i => i.name === 'crew-chat');
+    let logs = member.guild.channels.cache.find(i => i.id === client.config.logsChannelID);
+    let crewChat = member.guild.channels.cache.find(i => i.id === client.config.generalChannelID);
 
     member.roles.add(member.guild.roles.cache.find(i => i.name === 'Crewmate'));
 
     logs.send(`${member.displayName} (${member.user.username}) joined ${member.guild}`);
-    crewChat.send(randomGreeting(member, functions.getRandomInt(10)));
+    crewChat.send(randomGreeting(member, functions.getRandomInt(10)), client);
 }
 
-const randomGreeting = (member, int) => {
-    const infoChannel = member.guild.channels.cache.find(i => i.name === 'info');
-    const rolesChannel = member.guild.channels.cache.find(i => i.name === 'role-select');
+const randomGreeting = (member, int, client) => {
+    let infoChannel = member.guild.channels.cache.find(i => i.id === client.config.infoChannelID);
+    let rolesChannel = member.guild.channels.cache.find(i => i.id === client.config.rolesChannelID);
 
-    const welcome = `Welcome and please read ${infoChannel} and select your roles at ${rolesChannel}.`;
+    let welcome = `Welcome and please read ${infoChannel} and select your roles at ${rolesChannel}.`;
 
-    const welcomeMessage = [
+    let welcomeMessage = [
         `${member} just docked to the spaceship! ${welcome}`,
         `${member} is the newest crewmate! ${welcome}`,
         `${member} is here to help out with tasks! ${welcome}`,
