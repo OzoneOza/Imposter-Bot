@@ -31,7 +31,7 @@ module.exports = (client, msg) => {
         }
         return;
     }
-
+//s
     if (msg.channel.id === client.config.voiceTextChannelID) {
         if (!msg.member.voice.channel) {
             msg.delete({timeout: 100});
