@@ -3,9 +3,9 @@ module.exports = {
     args: '',
     description: 'Stops the song and clears the queue',
     run(client, msg)  {
-        const serverQueue = msg.client.queue.get(msg.guild.id);
+        let serverQueue = msg.client.queue.get(msg.guild.id);
 
-        const voiceChannel = msg.member.voice.channel;
+        let voiceChannel = msg.member.voice.channel;
         if (!voiceChannel) return msg.channel.send(`You need to be in a voice channel before you can stop the music!`);
         
         serverQueue.songs = [];
@@ -15,6 +15,6 @@ module.exports = {
             serverQueue.connection.dispatcher.end();
         }
 
-        msg.channel.send(':wave:  Music has been stopped and the queue has been cleared!  :wave:');
+        msg.channel.send(':octagonal_sign:  Music has been stopped and the queue has been cleared!');
     }
 }
