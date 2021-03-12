@@ -32,21 +32,14 @@ module.exports = (client, msg) => {
         return;
     }
 
-    if (msg.channel.name === 'meeting-chat') {
-        if (msg.member.voice.channel) {
-            if (msg.member.voice.channel.name !== 'Meeting 1' && msg.member.voice.channel.name !== 'Meeting 2') {
-                msg.delete({timeout: 100});
-                msg.channel.send(`You aren't allowed to send messages in ${msg.channel} without being connected to the **Meeting 1 or 2** voice channels!`).then(msg => {
-                    msg.delete({timeout: 5000});
-                });
-            }
+    if (msg.channel.id === client.config.voiceTextChannelID) {
+        if (!msg.member.voice.channel) {
+            msg.delete({timeout: 100});
+            msg.channel.send(`You aren't allowed to send messages in ${msg.channel} without being connected to a voice channel!`).then(msg => {
+                msg.delete({timeout: 5000});
+            });
             return;
         }
-        msg.delete({timeout: 100});
-        msg.channel.send(`You aren't allowed to send messages in ${msg.channel} without being connected to the **Meeting 1 or 2** voice channels!`).then(msg => {
-            msg.delete({timeout: 5000});
-        });
-        return;
     }
 
     if (msg.content.indexOf(client.config.prefix) !== 0) return;
