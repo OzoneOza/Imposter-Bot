@@ -1,7 +1,7 @@
 module.exports = async client => {
-    let guild = client.guilds.cache.find(i => i.name === 'Skip on Six');
-    let roleSelect = guild.channels.cache.find(i => i.name === 'role-select');
-    let logs = guild.channels.cache.find(i => i.name === 'logs');
+    let guild = client.guilds.cache.find(i => i.id === client.config.guildID);
+    let roleSelect = guild.channels.cache.find(i => i.id === client.config.rolesChannelID);
+    let logs = guild.channels.cache.find(i => i.id === client.config.logsChannelID);
     
     console.log('Caching role-select messages');
 
