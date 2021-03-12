@@ -31,7 +31,7 @@ module.exports = (client, msg) => {
         }
         return;
     }
-    console.log('0');
+    console.log(`Config: ${client.config.voiceTextChannelID}`);
     if (msg.channel.id === client.config.voiceTextChannelID) {
         console.log('1');
         if (!msg.member.voice.channel) {
