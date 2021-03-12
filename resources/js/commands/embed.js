@@ -19,7 +19,7 @@ module.exports = {
         }
     },
     sendEmbed(msg, name, client) {
-        const embed = new Discord.MessageEmbed().setColor(0xA00405);
+        let embed = new Discord.MessageEmbed().setColor(0xA00405);
 
         if (name === 'clear') {
             embed.setTitle('**Delete the Last 100 Messages?**')
@@ -58,7 +58,7 @@ module.exports = {
         if (name === 'games') {
             embed.setTitle('**Games**')
             .setThumbnail('https://i.imgur.com/ov3jQTA.jpg');
-            let info = msg.guild.channels.cache.find(i => i.name === 'info');
+            let info = msg.guild.channels.cache.find(i => i.id === client.config.infoChannelID);
             info.messages.fetch('790514757483626506').then(infoMessage => {
                 let gamesList = infoMessage.content.replace('Welcome and good luck, have fun, don’t die! 🙂', '').replace(': :', '').trim().split('- ');
 
@@ -83,7 +83,7 @@ module.exports = {
             embed.setTitle('**List of Commands**')
             .setThumbnail('https://i.imgur.com/ov3jQTA.jpg');
 
-            const commands = client.commands.array();
+            let commands = client.commands.array();
             for (cmd of commands) {
                 embed.addField(`${cmd.admin ? '(ADMIN) ' : ''}${client.config.prefix + cmd.name} ${cmd.args}`, cmd.description);
             }
@@ -106,7 +106,7 @@ module.exports = {
         }
 
         if (name === 'queue') {
-            const serverQueue = msg.client.queue.get(msg.guild.id);
+            let serverQueue = msg.client.queue.get(msg.guild.id);
 
             embed.setTitle('**Song Queue**')
             .setThumbnail('https://i.imgur.com/ov3jQTA.jpg');
@@ -135,7 +135,7 @@ module.exports = {
         }
 
         if (name === 'steam') {
-            const guild = client.guilds.cache.find(i => i.name === 'Skip on Six');
+            let guild = client.guilds.cache.find(i => i.id === client.config.guildID);
             
             embed.setTitle(`**${guild} Steam Account**`)
             .setThumbnail('https://i.imgur.com/l5TVAwk.png')
