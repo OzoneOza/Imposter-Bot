@@ -17,7 +17,7 @@ module.exports = async (client, reaction, user) => {
 		if (embed.title === '**Delete the Last 100 Messages?**') {
 			client.commands.get('clear').clear(reaction);
 		} else {
-			client.commands.get('roles').setRole(embed, reaction, user);
+			client.commands.get('roles').setRole(embed, reaction, user, client);
 		}
 	});
 }
