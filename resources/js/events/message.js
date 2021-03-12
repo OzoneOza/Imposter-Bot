@@ -31,7 +31,9 @@ module.exports = (client, msg) => {
         }
         return;
     }
+    console.log('0');
     if (msg.channel.id === client.config.voiceTextChannelID) {
+        console.log('1');
         if (!msg.member.voice.channel) {
             msg.delete({timeout: 100});
             msg.channel.send(`You aren't allowed to send messages in ${msg.channel} without being connected to a voice channel!`).then(msg => {
