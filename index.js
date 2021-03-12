@@ -3,7 +3,6 @@ if (Number(process.version.slice(1).split('.')[0]) < 12) throw new Error('Node 1
 const Discord = require('discord.js');
 const Client = require('./resources/js/Client/Client');
 const config = require('./resources/data/config.json');
-const Enmap = require('enmap');
 const fs = require('fs');
 const { google } = require('googleapis');
 
@@ -15,7 +14,7 @@ client.config = config;
 fs.readdir('./resources/js/events/', (err, files) => {
     if (err) return console.error(err);
     files.forEach(file => {
-        const event = require(`./resources/js/events/${file}`);
+        let event = require(`./resources/js/events/${file}`);
         let eventName = file.split('.')[0];
         client.on(eventName, event.bind(null, client));
     });
