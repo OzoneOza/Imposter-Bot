@@ -5,7 +5,7 @@ const URL = require('url').URL;
 module.exports = (client, oldMsg, newMsg) => {
     if (newMsg.author.bot) return;
 
-    if (newMsg.channel.name === 'invite-links') {
+    if (newMsg.channel.id === client.config.linksChannelID) {
         let content = newMsg.content.split(/ +/g);
         const isURL = (s) => {
             try {
