@@ -3,8 +3,8 @@ const functions = require('../handlers/functions');
 module.exports = (client, member) => {
     if (member.user.bot) return;
     
-    let logs = member.guild.channels.cache.find(i => i.id === client.config.logsChannelID);
-    let crewChat = member.guild.channels.cache.find(i => i.id === client.config.generalChannelID);
+    let logs = member.guild.channels.cache.find(i => i.id === "797046031757213726");
+    let crewChat = member.guild.channels.cache.find(i => i.id === "783964469298593795");
 
     member.roles.add(member.guild.roles.cache.find(i => i.name === 'Crewmate'));
 
@@ -13,8 +13,8 @@ module.exports = (client, member) => {
 }
 
 const randomGreeting = (member, int, client) => {
-    let infoChannel = member.guild.channels.cache.find(i => i.id === client.config.infoChannelID);
-    let rolesChannel = member.guild.channels.cache.find(i => i.id === client.config.rolesChannelID);
+    let infoChannel = member.guild.channels.cache.find(i => i.id === "790309198521040977");
+    let rolesChannel = member.guild.channels.cache.find(i => i.id === "789956311432429568");
 
     let welcome = `Welcome and please read ${infoChannel} and select your roles at ${rolesChannel}.`;
 
