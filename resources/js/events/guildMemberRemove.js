@@ -5,4 +5,4 @@ module.exports = (client, member) => {
     logs.send(`${member.displayName} (${member.user.username}) left ${member.guild}`);
     
     member.guild.channels.cache.find(i => i.id === client.config.generalChannelID).send(`${member.user.username} got ejected.`);
-}
+}//a
