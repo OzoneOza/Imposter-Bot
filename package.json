@@ -16,7 +16,7 @@
     "fs": "0.0.1-security",
     "googleapis": "^67.0.0",
     "yt-search": "^2.5.2",
-    "ytdl-core": "^4.4.5"
+    "ytdl-core": "^4.5.0"
   },
   "engines": {
     "node": "12.18.3"
