@@ -8,7 +8,7 @@ module.exports = {
         let voiceChannel = msg.member.voice.channel;
         if (!voiceChannel) return msg.channel.send(`You need to be in a voice channel before you can stop the music!`);
         
-        serverQueue.songs = [];
+        if (serverQueue.songs) serverQueue.songs = [];
         if (!serverQueue.connection.dispatcher) {
             serverQueue.voiceChannel.leave();
         } else {

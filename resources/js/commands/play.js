@@ -97,6 +97,8 @@ module.exports = {
           .on('error', error => {
               console.error(error);
               msg.channel.send(`Error: ${error.message}`);
+              serverQueue.songs.shift();
+              this.play(msg, serverQueue.songs[0]);
           });
         dispatcher.setVolumeLogarithmic(1);
         serverQueue.textChannel.send(`:notes:  Now playing: **${song.title}**`);
