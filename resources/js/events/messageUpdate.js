@@ -16,7 +16,7 @@ module.exports = (client, oldMsg, newMsg) => {
             }
         }
         if (!(content.some(isURL) || newMsg.content.includes('<@'))) {
-            newMsg.delete({timeout: 100});
+            newMsg.delete({timeout: 1000});
             newMsg.channel.send(`Edited messages without links or pings are not allowed!`).then(msg => {
                 msg.delete({timeout: 5000});
             });

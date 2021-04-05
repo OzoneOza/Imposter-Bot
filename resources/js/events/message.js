@@ -24,7 +24,7 @@ module.exports = (client, msg) => {
         let content = msg.content.split(/ +/g);
 
         if (!(content.some(functions.isURL) || msg.content.includes('<@'))) {
-            msg.delete({timeout: 100});
+            msg.delete({timeout: 1000});
             msg.channel.send(`Messages without links or pings are not allowed!`).then(msg => {
                 msg.delete({timeout: 5000});
             });
@@ -34,7 +34,7 @@ module.exports = (client, msg) => {
 
     if (msg.channel.id === client.config.voiceTextChannelID) {
         if (!msg.member.voice.channel) {
-            msg.delete({timeout: 100});
+            msg.delete({timeout: 1000});
             msg.channel.send(`You aren't allowed to send messages in ${msg.channel} without being connected to a voice channel!`).then(msg => {
                 msg.delete({timeout: 5000});
             });
