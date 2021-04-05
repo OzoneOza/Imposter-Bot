@@ -5,7 +5,7 @@ const config = require('./resources/data/config.json');
 const fs = require('fs');
 const { google } = require('googleapis');
 
-const client = new Discord.client();
+const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
 client.config = config;
