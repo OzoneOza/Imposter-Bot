@@ -1,12 +1,11 @@
 if (Number(process.version.slice(1).split('.')[0]) < 12) throw new Error('Node 12.0.0 or higher is required. Update Node on your system.');
 
 const Discord = require('discord.js');
-const Client = require('./resources/js/Client/Client');
 const config = require('./resources/data/config.json');
 const fs = require('fs');
 const { google } = require('googleapis');
 
-const client = new Client();
+const client = new Discord.client();
 client.commands = new Discord.Collection();
 
 client.config = config;
