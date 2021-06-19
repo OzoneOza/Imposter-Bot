@@ -38,9 +38,9 @@ module.exports = {
         if (embed.title === '**Pick Your Color**') {
             role.type = colorRoles.filter(i => i.name.toLowerCase() === emojiName);
             role.result = `'s color has been updated to ${emojiName}`;
-            member.roles.remove(colorRoles).then(member => {
-                member.roles.add(role.type);
-            });
+            // member.roles.remove(colorRoles).then(member => {
+            //     member.roles.add(role.type);
+            // });
         }
     
         if (embed.title === '**Get Game Invite Pings**') {
