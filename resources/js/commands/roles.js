@@ -23,8 +23,7 @@ module.exports = {
 
         let member = reaction.message.guild.member(user);
         let emojiName = reaction.emoji.name.replace('crew', '');
-        let logs = reaction.message.guild.channels.cache.find(i => i.id === client.config.logsChannelID); 
-        let roles = reaction.message.guild.roles.cache.array();
+        let logs = reaction.message.guild.channels.cache.find(i => i.id === client.config.logsChannelID);
         let generalPings = reaction.message.guild.roles.cache.find(i => i.name === 'general_pings');
         let amongUsPings = reaction.message.guild.roles.cache.find(i => i.name === 'among_us_pings');
         let moviePings = reaction.message.guild.roles.cache.find(i => i.name === 'movie_pings');
@@ -32,9 +31,30 @@ module.exports = {
             type: null,
             result: ''
         };
+
+        let colorRoles = [
+            reaction.message.guild.roles.cache.find(i => i.name === 'Yellow'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Banana'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Orange'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Coral'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Red'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Maroon'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Brown'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Tan'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Lime'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Cyan'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Green'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Blue'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Black'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Gray'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Purple'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Pink'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'Rose'), 
+            reaction.message.guild.roles.cache.find(i => i.name === 'White')
+        ]
         
         if (embed.title === '**Pick Your Color**') {
-            role.type = roles.filter(i => i.name.toLowerCase() === emojiName);
+            role.type = colorRoles.filter(i => i.name.toLowerCase() === emojiName);
             role.result = `'s color has been updated to ${emojiName}`;
             member.roles.remove(colorRoles).then(member => {
                 member.roles.add(role.type);
