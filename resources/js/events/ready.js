@@ -5,8 +5,8 @@ module.exports = async client => {
     
     console.log('Caching role-select messages');
 
-    roleSelect.messages.fetch('807882673754079232');
-    roleSelect.messages.fetch('807882725758730240');
+    roleSelect.messages.fetch('855639384148541471');
+    roleSelect.messages.fetch('855639483176452096');
     
     console.log('Imposter Bot is now ready to go!');
     logs.send('Imposter bot is back online');
