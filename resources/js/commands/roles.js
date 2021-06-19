@@ -25,8 +25,6 @@ module.exports = {
         let emojiName = reaction.emoji.name.replace('crew', '');
         let logs = reaction.message.guild.channels.cache.find(i => i.id === client.config.logsChannelID); 
         let roles = reaction.message.guild.roles.cache.array();
-        let colorRoles = roles.splice(12, 20);
-        console.log(colorRoles);
         let generalPings = reaction.message.guild.roles.cache.find(i => i.name === 'general_pings');
         let amongUsPings = reaction.message.guild.roles.cache.find(i => i.name === 'among_us_pings');
         let moviePings = reaction.message.guild.roles.cache.find(i => i.name === 'movie_pings');
@@ -36,7 +34,7 @@ module.exports = {
         };
         
         if (embed.title === '**Pick Your Color**') {
-            role.type = colorRoles.filter(i => i.name.toLowerCase() === emojiName);
+            role.type = roles.filter(i => i.name.toLowerCase() === emojiName);
             role.result = `'s color has been updated to ${emojiName}`;
             // member.roles.remove(colorRoles).then(member => {
             //     member.roles.add(role.type);
