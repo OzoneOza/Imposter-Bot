@@ -39,18 +39,24 @@ module.exports = {
             .setDescription('Choose a reaction below to select your color, crewmate!');
 
             msg.channel.send(embed).then(msg => {
-                msg.react('784695107206119435');
-                msg.react('784695282276761600');
-                msg.react('784695216375857162');
-                msg.react('784695324907274241');
-                msg.react('784695198193811487');
-                msg.react('784695171467182080');
-                msg.react('784695134251253780');
-                msg.react('784695084755058699');
-                msg.react('784695261288857610');
-                msg.react('784695236902387722');
-                msg.react('784695050524688424');
-                msg.react('784695304674476032');
+                msg.react('784695324907274241'); //yellow
+                msg.react('855628067845963797'); //banana
+                msg.react('784695216375857162'); //orange
+                msg.react('855628034211315742'); //coral
+                msg.react('784695282276761600'); //red
+                msg.react('855628127720308757'); //maroon
+                msg.react('784695107206119435'); //brown
+                msg.react('855612858590298112'); //tan
+                msg.react('784695198193811487'); //lime
+                msg.react('784695134251253780'); //cyan
+                msg.react('784695171467182080'); //green
+                msg.react('784695084755058699'); //blue
+                msg.react('784695050524688424'); //black
+                msg.react('855628109663436811'); //gray
+                msg.react('784695261288857610'); //purple
+                msg.react('784695236902387722'); //pink
+                msg.react('855628095061884938'); //rose
+                msg.react('784695304674476032'); //white
             });
             return;
         }
