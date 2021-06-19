@@ -26,8 +26,8 @@ module.exports = {
         let logs = reaction.message.guild.channels.cache.find(i => i.id === client.config.logsChannelID); 
         let roles = reaction.message.guild.roles.cache.array();
         let colorRoles = roles.splice(2, 12);
-        console.log('Roles: ', roles);
-        console.log('Color roles:',colorRoles);
+        console.log('Roles: ', roles.name);
+        console.log('Color roles:',colorRoles.name);
         let generalPings = reaction.message.guild.roles.cache.find(i => i.name === 'general_pings');
         let amongUsPings = reaction.message.guild.roles.cache.find(i => i.name === 'among_us_pings');
         let moviePings = reaction.message.guild.roles.cache.find(i => i.name === 'movie_pings');
