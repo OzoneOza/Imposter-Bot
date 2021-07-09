@@ -27,6 +27,7 @@ module.exports = {
         let generalPings = reaction.message.guild.roles.cache.find(i => i.name === 'general_pings');
         let amongUsPings = reaction.message.guild.roles.cache.find(i => i.name === 'among_us_pings');
         let moviePings = reaction.message.guild.roles.cache.find(i => i.name === 'movie_pings');
+        let eighteenPlusRole = reaction.message.guild.roles.cache.find(i => i.name === '18+');
         let role = {
             type: null,
             result: ''
@@ -73,6 +74,10 @@ module.exports = {
             if (emojiName === '🎬') {
                 role.type = moviePings;
                 role.result = 'receive Movie watching pings'
+            }
+            if (emojiName === '🔞') {
+                role.type = eighteenPlusRole;
+                role.result = 'have access to NSFW content'
             }
             if (!role.type) return;
             if (!member.roles.cache.find(i => i === role.type)) {

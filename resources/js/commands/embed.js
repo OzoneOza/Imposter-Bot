@@ -101,12 +101,13 @@ module.exports = {
         if (name === 'pings') {
             embed.setTitle('**Get Game Invite Pings**')
             .setThumbnail('https://i.imgur.com/0WUIRA0.png')
-            .setDescription('React with <:megaphone:784695010913288192> to receive general game invite pings.\nReact with <:among_us:796184810279403530> to receive Among Us game invite pings.\nReact with :clapper: to receive Movie watching pings. \nTo toggle off pings select the reaction again!' );
+            .setDescription('React with <:megaphone:784695010913288192> to receive general game invite pings.\nReact with <:among_us:796184810279403530> to receive Among Us game invite pings.\nReact with :clapper: to receive Movie watching pings.\nReact with :underage: to gain access to NSFW channels.\nTo toggle off pings select the reaction again!');
             
             msg.channel.send(embed).then(msg => {
                 msg.react('784695010913288192');
                 msg.react('796184810279403530');
                 msg.react('🎬');
+                msg.react('🔞')
             }); 
             return;
         }
