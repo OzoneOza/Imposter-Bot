@@ -62,7 +62,7 @@ module.exports = {
             });
         }
     
-        if (embed.title === '**Get Game Invite Pings**') {
+        if (embed.title === '**Get Special Roles**') {
             if (emojiName === 'megaphone') {
                 role.type = generalPings;
                 role.result = 'receive general game invite pings';

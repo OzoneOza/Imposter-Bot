@@ -8,8 +8,8 @@ module.exports = {
     run(client, msg)  {
         if (!msg.member.hasPermission('ADMINISTRATOR')) return;
 
-        embed.sendEmbed(msg, this.name);
-        msg.delete({timeout: 100});
+        //embed.sendEmbed(msg, this.name);
+        //msg.delete({timeout: 100});
     },
     clear(reaction) {
         let channel = reaction.message.channel;

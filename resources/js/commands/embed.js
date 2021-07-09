@@ -99,7 +99,7 @@ module.exports = {
         }
 
         if (name === 'pings') {
-            embed.setTitle('**Get Game Invite Pings**')
+            embed.setTitle('**Get Special Roles**')
             .setThumbnail('https://i.imgur.com/0WUIRA0.png')
             .setDescription('React with <:megaphone:784695010913288192> to receive general game invite pings.\nReact with <:among_us:796184810279403530> to receive Among Us game invite pings.\nReact with :clapper: to receive Movie watching pings.\nReact with :underage: to gain access to NSFW channels.\nTo toggle off pings select the reaction again!');
             
