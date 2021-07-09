@@ -32,10 +32,34 @@ module.exports = (client, msg) => {
         return;
     }
 
-    if (msg.channel.id === client.config.voiceTextChannelID) {
+    if (msg.channel.id === client.config.sfwVoiceTextChannelID) {
         if (!msg.member.voice.channel) {
             msg.delete({timeout: 1000});
-            msg.channel.send(`You aren't allowed to send messages in ${msg.channel} without being connected to a voice channel!`).then(msg => {
+            msg.channel.send(`You aren't allowed to send messages in ${msg.channel} without being connected to the voice channel!`).then(msg => {
+                msg.delete({timeout: 5000});
+            });
+            return;
+        }
+        if (msg.member.voice.channel.id !== client.config.sfwVoiceChannelID) {
+            msg.delete({timeout: 1000});
+            msg.channel.send(`You aren't allowed to send messages in ${msg.channel} without being connected to the voice channel!`).then(msg => {
+                msg.delete({timeout: 5000});
+            });
+            return;
+        }
+    }
+
+    if (msg.channel.id === client.config.nsfwVoiceTextChannelID) {
+        if (!msg.member.voice.channel) {
+            msg.delete({timeout: 1000});
+            msg.channel.send(`You aren't allowed to send messages in ${msg.channel} without being connected to the voice channel!`).then(msg => {
+                msg.delete({timeout: 5000});
+            });
+            return;
+        }
+        if (msg.member.voice.channel.id !== client.config.nsfwVoiceChannelID) {
+            msg.delete({timeout: 1000});
+            msg.channel.send(`You aren't allowed to send messages in ${msg.channel} without being connected to the voice channel!`).then(msg => {
                 msg.delete({timeout: 5000});
             });
             return;
